@@ -1,4 +1,4 @@
-const {BrowserWindow} = require('electron')
+let windows = require('../windows.js');
 exports.mainMenuTemplate = [
     {
         label:"ToDo",
@@ -7,7 +7,7 @@ exports.mainMenuTemplate = [
                 label:"Add ToDo",
                 accelerator:(process.platform == 'darwin') ? "Command+Shift+A" : "Control+Shift+A",
                 click(){
-                    createAddNewToDoWindow();
+                    windows.createAddNewToDoWindow();
                 }
             },
             {type:'separator'},
