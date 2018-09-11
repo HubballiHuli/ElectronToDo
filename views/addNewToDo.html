@@ -20,7 +20,7 @@
         btn = document.querySelector('button');
 
         btn.addEventListener('click',function(){
-            ipcRenderer.send('hi','hi how you doing');
+            ipcRenderer.send('hi',document.getElementById('newtodoid').value);
         })
     </script>
 </body>
