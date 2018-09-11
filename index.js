@@ -1,18 +1,18 @@
 const electron = require('electron');
+const ipcHandlers = require('./ipcHandlers/addToDo.js');
+const globals = require('./globals.js');
 
 const {app,BrowserWindow,Menu,ipcMain} = electron;
 const menus = require('./partials/menus/menu.js');
 
-let appWindow = null;
+globals.appWindow = null;
 function createAppWindow(){
-    appWindow = new BrowserWindow({});
-    appWindow.loadFile('./views/index.html');
+    globals.appWindow = new BrowserWindow({});
+    globals.appWindow.loadFile('./views/index.html');
     mainMenu = Menu.buildFromTemplate(menus.mainMenuTemplate)
-    appWindow.setMenu(mainMenu)
+    globals.appWindow.setMenu(mainMenu)
 }
 
-ipcMain.on('hi',function(e,msg){
-    console.log(msg);
-})
+ipcMain.on('hi',ipcHandlers.addNewToDo);
 
 app.on('ready',createAppWindow);

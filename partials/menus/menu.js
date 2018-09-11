@@ -5,6 +5,7 @@ exports.mainMenuTemplate = [
         submenu:[
             {
                 label:"Add ToDo",
+            
                 accelerator:(process.platform == 'darwin') ? "Command+Shift+A" : "Control+Shift+A",
                 click(){
                     windows.createAddNewToDoWindow();
