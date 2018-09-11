@@ -13,5 +13,15 @@
     <div>
         <button>Add Todo</button>
     </div>
+    <script>
+        let electron = require('electron');
+        let {ipcRenderer} = electron;
+
+        btn = document.querySelector('button');
+
+        btn.addEventListener('click',function(){
+            ipcRenderer.send('hi','hi how you doing');
+        })
+    </script>
 </body>
 </html>
