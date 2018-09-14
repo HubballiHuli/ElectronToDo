@@ -9,10 +9,11 @@ globals.appWindow = null;
 function createAppWindow(){
     globals.appWindow = new BrowserWindow({});
     globals.appWindow.loadFile('./views/index.html');
+    globals.appWindow.toggleDevTools();
     mainMenu = Menu.buildFromTemplate(menus.mainMenuTemplate)
     globals.appWindow.setMenu(mainMenu)
 }
 
-ipcMain.on('hi',ipcHandlers.addNewToDo);
+ipcMain.on('newToDo',ipcHandlers.addNewToDo);
 
 app.on('ready',createAppWindow);
